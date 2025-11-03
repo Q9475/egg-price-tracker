@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Night Shift Dashboard</title>
+  <link rel="manifest" href="manifest.json" />
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #101820;
+      color: #FEE715;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 { text-align: center; margin-bottom: 10px; }
+    .block {
+      background: #1C1C1C;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 10px 0;
+      color: #fff;
+      width: 100%;
+      max-width: 400px;
+    }
+    button {
+      width: 80%;
+      background: #FEE715;
+      color: #101820;
+      border: none;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #ffea45; }
+    .clock { font-size: 1.2rem; margin-top: 10px; }
+    .shift-status { margin-top: 10px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h1>🌙 Night Shift Dashboard</h1>
+
+  <div class="clock">⏰ <span id="time"></span></div>
+  <div class="shift-status" id="status">Detecting shift...</div>
+
+  <div class="block"><b>2:00 PM – 3:30 PM:</b> Wake up, hydrate, sunlight, quick walk.</div>
+  <div class="block"><b>3:30 PM – 4:30 PM:</b> Skill learning / app dev / Excel practice.</div>
+  <div class="block"><b>4:30 PM – 5:30 PM:</b> Meal prep & get ready for work.</div>
+  <div class="block"><b>6:00 PM – 5:00 AM:</b> Dispatch & routing. Hydrate hourly, stretch, and keep positive!</div>
+  <div class="block"><b>5:00 AM – 7:00 AM:</b> Light breakfast, stretch, sleep (7 AM – 2 PM).</div>
+
+  <button id="startShift">▶️ Start Shift</button>
+  <button id="endShift" style="display:none;">⏹ End Shift</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
